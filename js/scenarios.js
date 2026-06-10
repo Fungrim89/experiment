@@ -10,7 +10,8 @@
 window.SUPRADYN_SCENARIOS = [
   {
     id: "marina",
-    customer: { name: "Марина, 34 года", avatar: "👩🏻‍💼", tag: "Менеджер, переработки" },
+    customer: { name: "Марина, 34 года", avatar: "👩🏻‍💼", tag: "Менеджер, переработки",
+      look: { skin: 0xf0c9a8, cloth: 0x5b6dad, hair: 0x5b3b1f, hairStyle: "long", sex: "f" } },
     request:
       "Здравствуйте! К вечеру валюсь с ног, на работе завал, кофе пью литрами — а толку ноль. Посоветуете что-нибудь для энергии?",
     steps: [
@@ -84,7 +85,8 @@ window.SUPRADYN_SCENARIOS = [
 
   {
     id: "igor",
-    customer: { name: "Игорь, 45 лет", avatar: "👨🏻‍💻", tag: "Сезон простуд в офисе" },
+    customer: { name: "Игорь, 45 лет", avatar: "👨🏻‍💻", tag: "Сезон простуд в офисе",
+      look: { skin: 0xeab98f, cloth: 0x6d7a86, hair: 0x2e2a25, hairStyle: "short", sex: "m" } },
     request:
       "В офисе все чихают, и у меня с утра запершило горло. Не хочу слечь — есть что-то, чтобы поддержать иммунитет?",
     steps: [
@@ -158,7 +160,8 @@ window.SUPRADYN_SCENARIOS = [
 
   {
     id: "olga",
-    customer: { name: "Ольга", avatar: "👩🏼", tag: "Мама, сын 4 года" },
+    customer: { name: "Ольга", avatar: "👩🏼", tag: "Мама, сын 4 года",
+      look: { skin: 0xf3d0b0, cloth: 0xd2728f, hair: 0xcaa24a, hairStyle: "long", sex: "f" } },
     request:
       "Сынишке 4 года, стал плохо есть, капризничает за столом. Подруга советовала витамины — что подойдёт малышу?",
     steps: [
@@ -232,7 +235,8 @@ window.SUPRADYN_SCENARIOS = [
 
   {
     id: "sergey",
-    customer: { name: "Сергей", avatar: "👨🏽", tag: "Папа, дочь 8 лет" },
+    customer: { name: "Сергей", avatar: "👨🏽", tag: "Папа, дочь 8 лет",
+      look: { skin: 0xc98a5a, cloth: 0x3f8a6e, hair: 0x1c1813, hairStyle: "short", sex: "m" } },
     request:
       "Дочке 8 лет, второй класс. Стала рассеянной, тяжело даётся домашка, быстро отвлекается. Есть витамины для внимания?",
     steps: [
@@ -306,7 +310,8 @@ window.SUPRADYN_SCENARIOS = [
 
   {
     id: "natalia",
-    customer: { name: "Наталья", avatar: "👩🏻", tag: "Мама, сын 6 лет" },
+    customer: { name: "Наталья", avatar: "👩🏻", tag: "Мама, сын 6 лет",
+      look: { skin: 0xf0c9a8, cloth: 0xc96a4a, hair: 0x3a2a1a, hairStyle: "bun", sex: "f" } },
     request:
       "Хочу сыну (6 лет) витамины «на каждый день» — чтобы был полный комплекс, всё самое нужное для роста.",
     steps: [
@@ -380,7 +385,8 @@ window.SUPRADYN_SCENARIOS = [
 
   {
     id: "dmitry",
-    customer: { name: "Дмитрий", avatar: "👨🏻‍🦱", tag: "Папа, сын 12 лет" },
+    customer: { name: "Дмитрий", avatar: "👨🏻‍🦱", tag: "Папа, сын 12 лет",
+      look: { skin: 0xe7b58c, cloth: 0x444b59, hair: 0x2a1d12, hairStyle: "short", sex: "m" } },
     request:
       "Сыну 12 лет, серьёзно занимается футболом — тренировки почти каждый день. Что посоветуете для подростка?",
     steps: [
@@ -454,7 +460,8 @@ window.SUPRADYN_SCENARIOS = [
 
   {
     id: "elena",
-    customer: { name: "Елена", avatar: "👩🏽", tag: "Мама, дочь 5 лет" },
+    customer: { name: "Елена", avatar: "👩🏽", tag: "Мама, дочь 5 лет",
+      look: { skin: 0xcf9b6b, cloth: 0x8e6db0, hair: 0x20160f, hairStyle: "long", sex: "f" } },
     request:
       "Дочка (5 лет) пошла в садик и теперь болеет почти каждый месяц. Можно ли поддержать её иммунитет?",
     steps: [
@@ -528,7 +535,8 @@ window.SUPRADYN_SCENARIOS = [
 
   {
     id: "viktor",
-    customer: { name: "Виктор, 50 лет", avatar: "🧔🏻", tag: "Активный, часто в разъездах" },
+    customer: { name: "Виктор, 50 лет", avatar: "🧔🏻", tag: "Активный, часто в разъездах",
+      look: { skin: 0xe9b88e, cloth: 0xc25b3a, hair: 0x8a8a8a, hairStyle: "short", sex: "m", beard: true } },
     request:
       "Бегаю по утрам, хочу поддержать энергию. Но шипучие таблетки не люблю и постоянно в командировках — нужно что-то удобное в дорогу.",
     steps: [
@@ -602,7 +610,8 @@ window.SUPRADYN_SCENARIOS = [
 
   {
     id: "anna",
-    customer: { name: "Анна, 28 лет", avatar: "🤰🏻", tag: "Беременность, 2-й триместр" },
+    customer: { name: "Анна, 28 лет", avatar: "🤰🏻", tag: "Беременность, 2-й триместр",
+      look: { skin: 0xf1cdaa, cloth: 0xe0a23c, hair: 0x3b2410, hairStyle: "long", sex: "f", pregnant: true } },
     request:
       "Я на 5-м месяце беременности. Хочу попить «Супрадин» для иммунитета, как раньше. Можно?",
     steps: [

@@ -2,59 +2,59 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Тренажёр фармацевта · Супрадин</title>
-  <meta name="description" content="Обучающая игра-тренажёр для фармацевта по линейке витаминов «Супрадин»." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Тренажёр фармацевта · Супрадин (3D)</title>
+  <meta name="description" content="3D-тренажёр фармацевта по линейке витаминов «Супрадин» на Three.js." />
   <link rel="stylesheet" href="css/styles.css" />
+  <script type="importmap">
+    { "imports": { "three": "./js/vendor/three.module.js" } }
+  </script>
 </head>
 <body>
-  <div class="app">
-    <!-- Шапка -->
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand__logo" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <circle cx="24" cy="24" r="9" fill="#fff"/>
-            <g stroke="#fff" stroke-width="3" stroke-linecap="round">
-              <line x1="24" y1="3"  x2="24" y2="11"/>
-              <line x1="24" y1="37" x2="24" y2="45"/>
-              <line x1="3"  y1="24" x2="11" y2="24"/>
-              <line x1="37" y1="24" x2="45" y2="24"/>
-              <line x1="9"  y1="9"  x2="15" y2="15"/>
-              <line x1="33" y1="33" x2="39" y2="39"/>
-              <line x1="9"  y1="39" x2="15" y2="33"/>
-              <line x1="33" y1="15" x2="39" y2="9"/>
-            </g>
-          </svg>
-        </span>
-        <div class="brand__text">
-          <strong>Супрадин</strong>
-          <span>тренажёр фармацевта</span>
-        </div>
-      </div>
-      <div class="topbar__stats" id="hud" hidden>
-        <div class="stat">
-          <span class="stat__label">Посетитель</span>
-          <span class="stat__value" id="hud-progress">1 / 9</span>
-        </div>
-        <div class="stat">
-          <span class="stat__label">Баллы</span>
-          <span class="stat__value" id="hud-score">0</span>
-        </div>
-        <button class="ghost-btn" id="ref-btn" type="button">📖 Справочник</button>
-      </div>
-    </header>
+  <!-- 3D-сцена -->
+  <div id="scene-root" class="scene-root"></div>
 
-    <main class="stage" id="stage">
-      <!-- Экраны рендерятся из game.js -->
-    </main>
+  <!-- Верхняя панель -->
+  <header class="topbar" id="hud" hidden>
+    <div class="brand">
+      <span class="brand__logo" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30">
+          <circle cx="24" cy="24" r="9" fill="#fff"/>
+          <g stroke="#fff" stroke-width="3" stroke-linecap="round">
+            <line x1="24" y1="3" x2="24" y2="11"/><line x1="24" y1="37" x2="24" y2="45"/>
+            <line x1="3" y1="24" x2="11" y2="24"/><line x1="37" y1="24" x2="45" y2="24"/>
+            <line x1="9" y1="9" x2="15" y2="15"/><line x1="33" y1="33" x2="39" y2="39"/>
+            <line x1="9" y1="39" x2="15" y2="33"/><line x1="33" y1="15" x2="39" y2="9"/>
+          </g>
+        </svg>
+      </span>
+      <div class="brand__text"><strong>Супрадин</strong><span>тренажёр фармацевта</span></div>
+    </div>
+    <div class="topbar__stats">
+      <div class="stat"><span class="stat__label">Посетитель</span><span class="stat__value" id="hud-progress">1 / 9</span></div>
+      <div class="stat"><span class="stat__label">Баллы</span><span class="stat__value" id="hud-score">0</span></div>
+      <button class="ghost-btn" id="ref-btn" type="button">📖 Справочник</button>
+    </div>
+  </header>
 
-    <footer class="footnote">
-      Обучающий тренажёр. Информация упрощена и не заменяет инструкцию производителя и консультацию врача.
-    </footer>
-  </div>
+  <!-- Плавающая подпись над головой посетителя -->
+  <div class="namelabel" id="namelabel" hidden></div>
 
-  <!-- Модальное окно: справочник линейки -->
+  <!-- Нижний док диалога -->
+  <section class="dock" id="dock" hidden>
+    <div class="dock__speech" id="speech"></div>
+    <div class="dock__panel">
+      <div class="step-title" id="step-title"></div>
+      <p class="step-q" id="step-q"></p>
+      <div class="options" id="options"></div>
+      <div id="feedback"></div>
+    </div>
+  </section>
+
+  <!-- Полноэкранные экраны (старт / итог) -->
+  <div class="overlay" id="overlay" hidden></div>
+
+  <!-- Справочник линейки -->
   <div class="modal" id="ref-modal" hidden>
     <div class="modal__backdrop" data-close></div>
     <div class="modal__card" role="dialog" aria-modal="true" aria-label="Справочник линейки Супрадин">
@@ -66,8 +66,12 @@
     </div>
   </div>
 
+  <footer class="footnote">Обучающий тренажёр · информация упрощена и не заменяет инструкцию и консультацию врача.</footer>
+
+  <!-- данные (классические скрипты, задают window-глобали) -->
   <script src="js/products.js"></script>
   <script src="js/scenarios.js"></script>
-  <script src="js/game.js"></script>
+  <!-- движок (ES-модуль) -->
+  <script type="module" src="js/game.js"></script>
 </body>
 </html>
