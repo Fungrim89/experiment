@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тренажёр фармацевта · Супрадин</title>
+  <meta name="description" content="Обучающая игра-тренажёр для фармацевта по линейке витаминов «Супрадин»." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Шапка -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__logo" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="34" height="34">
+            <circle cx="24" cy="24" r="9" fill="#fff"/>
+            <g stroke="#fff" stroke-width="3" stroke-linecap="round">
+              <line x1="24" y1="3"  x2="24" y2="11"/>
+              <line x1="24" y1="37" x2="24" y2="45"/>
+              <line x1="3"  y1="24" x2="11" y2="24"/>
+              <line x1="37" y1="24" x2="45" y2="24"/>
+              <line x1="9"  y1="9"  x2="15" y2="15"/>
+              <line x1="33" y1="33" x2="39" y2="39"/>
+              <line x1="9"  y1="39" x2="15" y2="33"/>
+              <line x1="33" y1="15" x2="39" y2="9"/>
+            </g>
+          </svg>
+        </span>
+        <div class="brand__text">
+          <strong>Супрадин</strong>
+          <span>тренажёр фармацевта</span>
+        </div>
+      </div>
+      <div class="topbar__stats" id="hud" hidden>
+        <div class="stat">
+          <span class="stat__label">Посетитель</span>
+          <span class="stat__value" id="hud-progress">1 / 9</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Баллы</span>
+          <span class="stat__value" id="hud-score">0</span>
+        </div>
+        <button class="ghost-btn" id="ref-btn" type="button">📖 Справочник</button>
+      </div>
+    </header>
+
+    <main class="stage" id="stage">
+      <!-- Экраны рендерятся из game.js -->
+    </main>
+
+    <footer class="footnote">
+      Обучающий тренажёр. Информация упрощена и не заменяет инструкцию производителя и консультацию врача.
+    </footer>
+  </div>
+
+  <!-- Модальное окно: справочник линейки -->
+  <div class="modal" id="ref-modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card" role="dialog" aria-modal="true" aria-label="Справочник линейки Супрадин">
+      <div class="modal__head">
+        <h2>Линейка «Супрадин»</h2>
+        <button class="icon-btn" data-close type="button" aria-label="Закрыть">✕</button>
+      </div>
+      <div class="modal__body" id="ref-body"></div>
+    </div>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/scenarios.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
