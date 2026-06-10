@@ -83,7 +83,22 @@ function ensureScene() {
 }
 
 async function startGame() {
-  ensureScene();
+  // Закрываем стартовый экран сразу — даже если инициализация сцены упадёт,
+  // попап не должен «залипнуть».
+  overlay.hidden = true;
+  try {
+    ensureScene();
+  } catch (e) {
+    console.error("Не удалось инициализировать 3D-сцену:", e);
+    overlay.hidden = false;
+    overlay.innerHTML = `<div class="card hero">
+      <div class="hero__sun">⚠️</div>
+      <h1>3D недоступно</h1>
+      <p class="lead">Не удалось запустить WebGL в этом браузере. Попробуйте другой
+      браузер или включите аппаратное ускорение. Подробности — в консоли разработчика.</p>
+    </div>`;
+    return;
+  }
   state = {
     scenarios: shuffle(window.SUPRADYN_SCENARIOS),
     idx: 0,
@@ -92,7 +107,6 @@ async function startGame() {
     results: [],
     correct: 0,
   };
-  overlay.hidden = true;
   updateHud();
   await runScenario();
 }

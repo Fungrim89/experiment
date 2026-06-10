@@ -15,6 +15,8 @@
   --radius: 18px;
 }
 * { box-sizing: border-box; }
+/* Атрибут hidden должен побеждать display из классов (.overlay/.topbar и т.д.) */
+[hidden] { display: none !important; }
 html, body {
   margin: 0; padding: 0; height: 100%;
   font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
